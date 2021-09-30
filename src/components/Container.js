@@ -14,20 +14,24 @@ const TodoContainer = styled.div`
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
 `;
 
-const Title = styled.h4`
+const Title = styled.header`
   height: 7.5%;
+
+  font-size: 1.3rem;
+
   display: flex;
   align-items: center;
-  padding-left: 1rem;
+  padding: 1rem 1rem 0 1rem;
 
   margin: 0;
 `;
 
-const InputBox = styled.form`
+const InputFormWrapper = styled.form`
   height: 12.5%;
 
   display: flex;
   align-items: center;
+
   justify-content: space-around;
 
   border-bottom: solid 1px lightgrey;
@@ -36,6 +40,8 @@ const InputBox = styled.form`
 const Input = styled.input`
   height: 50%;
   width: 70%;
+
+  padding-left: 0.75rem;
 
   border-radius: 15px;
   border: solid 1px lightgrey;
@@ -68,15 +74,17 @@ const Container = ({ handleAddTodo }) => {
     { text: '안녕안녕', isDone: false },
     { text: 'hello', isDone: false },
     { text: 'hihihihihihi', isDone: false },
+    { text: '우와', isDone: false },
+    { text: '우와우와', isDone: false },
   ];
 
   return (
     <TodoContainer>
       <Title>💌 투두리스트</Title>
-      <InputBox>
+      <InputFormWrapper>
         <Input />
         <AddTodoBtn onClick={handleAddTodo}>➕</AddTodoBtn>
-      </InputBox>
+      </InputFormWrapper>
       <ItemList title={'TODO'} list={todoItems} />
       <ItemList title={'DONE'} list={todoItems} />
     </TodoContainer>
