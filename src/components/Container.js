@@ -1,6 +1,6 @@
 import styled from 'styled-components';
-// import { useState } from 'react';
-import ItemList from './ItemList';
+import { useState } from 'react';
+import List from './List';
 
 const TodoContainer = styled.div`
   width: 360px;
@@ -67,16 +67,20 @@ const AddTodoBtn = styled.button`
 `;
 
 const Container = ({ handleAddTodo }) => {
-  //const [todoItems, setTodoItems] = useState([]);
+  const [todoItems, setTodoItems] = useState([]);
+  const [todo, setTodo] = useState({
+    text: '',
+    isDone: false,
+  });
 
   // dummy data
-  const todoItems = [
-    { text: '안녕안녕', isDone: false },
-    { text: 'hello', isDone: false },
-    { text: 'hihihihihihi', isDone: false },
-    { text: '우와', isDone: false },
-    { text: '우와우와', isDone: false },
-  ];
+  //   const todoItems = [
+  //     { text: '안녕안녕', isDone: false },
+  //     { text: 'hello', isDone: false },
+  //     { text: 'hihihihihihi', isDone: false },
+  //     { text: '우와', isDone: false },
+  //     { text: '우와우와', isDone: false },
+  //   ];
 
   return (
     <TodoContainer>
@@ -85,8 +89,8 @@ const Container = ({ handleAddTodo }) => {
         <Input />
         <AddTodoBtn onClick={handleAddTodo}>➕</AddTodoBtn>
       </InputFormWrapper>
-      <ItemList title={'TODO'} list={todoItems} />
-      <ItemList title={'DONE'} list={todoItems} />
+      <List title={'TODO'} list={todoItems} />
+      <List title={'DONE'} list={todoItems} />
     </TodoContainer>
   );
 };

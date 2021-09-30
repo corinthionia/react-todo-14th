@@ -42,7 +42,7 @@ const ListItem = styled.div`
   padding: 0.75rem;
 `;
 
-const ItemList = ({ title, list }) => {
+const List = ({ title, list }) => {
   return (
     <ListSection>
       <ListTitle>{title}</ListTitle>
@@ -55,4 +55,4 @@ const ItemList = ({ title, list }) => {
   );
 };
 
-export default ItemList;
+export default List;
