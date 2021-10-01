@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import List from './List';
+import ItemList from './ItemList';
 
 const Container = ({
   todo,
@@ -20,7 +20,7 @@ const Container = ({
         />
         <AddTodoBtn onClick={addNewTodo}>➕</AddTodoBtn>
       </InputFormWrapper>
-      <List items={items} deleteTodo={deleteTodo} toggleTodo={toggleTodo} />
+      <ItemList items={items} deleteTodo={deleteTodo} toggleTodo={toggleTodo} />
     </TodoContainer>
   );
 };

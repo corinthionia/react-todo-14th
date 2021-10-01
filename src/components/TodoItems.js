@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import Container from './Container';
 
 // 할 일들을 관리(추가/삭제/토글)하는 컴포넌트
-const Items = () => {
+const TodoItems = () => {
   // items: 전체 할 일들을 저장
   const [items, setItems] = useState([]);
 
@@ -74,4 +74,4 @@ const Items = () => {
   );
 };
 
-export default Items;
+export default TodoItems;

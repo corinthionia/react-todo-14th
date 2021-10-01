@@ -1,5 +1,5 @@
 import { createGlobalStyle } from 'styled-components';
-import Items from './components/Items';
+import TodoItems from './components/TodoItems';
 
 const GlobalStyle = createGlobalStyle`
     body {
@@ -18,7 +18,7 @@ function App() {
   return (
     <>
       <GlobalStyle />
-      <Items />
+      <TodoItems />
     </>
   );
 }

@@ -1,6 +1,6 @@
 import MakeList from './MakeList';
 
-const List = ({ items, deleteTodo, toggleTodo }) => {
+const ItemList = ({ items, deleteTodo, toggleTodo }) => {
   const todoList = items.filter((todoObj) => todoObj.isDone === false);
   const doneList = items.filter((todoObj) => todoObj.isDone === true);
 
@@ -22,4 +22,4 @@ const List = ({ items, deleteTodo, toggleTodo }) => {
   );
 };
 
-export default List;
+export default ItemList;
