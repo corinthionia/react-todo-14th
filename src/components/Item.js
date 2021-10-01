@@ -5,6 +5,15 @@ const Item = () => {
   // items: 전체 할 일들을 저장
   const [items, setItems] = useState([]);
 
+  useEffect(() => {
+    const savedItems = localStorage.getItem('todoItems');
+    savedItems && setItems(JSON.parse(savedItems));
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem('todoItems', JSON.stringify(items));
+  }, [items]);
+
   // todo: 입력한 할 일
   const [inputText, setInputText] = useState('');
   const [id, setId] = useState(0);
@@ -14,11 +23,6 @@ const Item = () => {
     text: inputText,
     isDone: false,
   };
-
-  useEffect(() => {
-    const savedItems = localStorage.getItem('todoItems');
-    savedItems && setItems(JSON.parse(savedItems));
-  }, []);
 
   const handleChange = (e) => {
     setInputText(e.target.value);
@@ -56,6 +60,7 @@ const Item = () => {
       addNewTodo={addNewTodo}
       deleteTodo={deleteTodo}
       items={items}
+      setItems={setItems}
       toggleTodo={toggleTodo}
     />
   );

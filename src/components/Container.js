@@ -6,6 +6,7 @@ const Container = ({
   handleChange,
   addNewTodo,
   items,
+  setItems,
   deleteTodo,
   toggleTodo,
 }) => {
