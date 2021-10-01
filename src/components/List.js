@@ -18,7 +18,7 @@ const ItemList = ({ items, title, deleteTodo, toggleTodo }) => {
   );
 };
 
-const Lists = ({ items, deleteTodo, toggleTodo }) => {
+const List = ({ items, deleteTodo, toggleTodo }) => {
   const todoList = items.filter((todoObj) => todoObj.isDone === false);
   const doneList = items.filter((todoObj) => todoObj.isDone === true);
 
@@ -106,4 +106,4 @@ const DeleteBtn = styled.button`
   }
 `;
 
-export default Lists;
+export default List;
