@@ -1,5 +1,5 @@
-import Container from './components/Container';
 import { createGlobalStyle } from 'styled-components';
+import Item from './components/Item';
 
 const GlobalStyle = createGlobalStyle`
 
@@ -34,7 +34,7 @@ function App() {
   return (
     <>
       <GlobalStyle />
-      <Container />
+      <Item />
     </>
   );
 }

@@ -1,6 +1,23 @@
 import styled from 'styled-components';
-import { useState } from 'react';
 import List from './List';
+
+const Container = ({ todo, handleChange, addNewTodo, items }) => {
+  return (
+    <TodoContainer>
+      <Title>💌 투두리스트</Title>
+      <InputFormWrapper>
+        <Input
+          value={todo}
+          onChange={handleChange}
+          placeholder="할 일을 입력하세요."
+        />
+        <AddTodoBtn onClick={addNewTodo}>➕</AddTodoBtn>
+      </InputFormWrapper>
+      <List title={'TODO'} items={items} />
+      <List title={'DONE'} items={items} />
+    </TodoContainer>
+  );
+};
 
 const TodoContainer = styled.div`
   width: 360px;
@@ -55,7 +72,8 @@ const AddTodoBtn = styled.button`
   height: 2rem;
   width: 2rem;
 
-  margin: 1%;
+  margin: 0;
+  padding: 0;
 
   border: none;
   border-radius: 10px;
@@ -65,34 +83,5 @@ const AddTodoBtn = styled.button`
     cursor: pointer;
   }
 `;
-
-const Container = ({ handleAddTodo }) => {
-  const [todoItems, setTodoItems] = useState([]);
-  const [todo, setTodo] = useState({
-    text: '',
-    isDone: false,
-  });
-
-  // dummy data
-  //   const todoItems = [
-  //     { text: '안녕안녕', isDone: false },
-  //     { text: 'hello', isDone: false },
-  //     { text: 'hihihihihihi', isDone: false },
-  //     { text: '우와', isDone: false },
-  //     { text: '우와우와', isDone: false },
-  //   ];
-
-  return (
-    <TodoContainer>
-      <Title>💌 투두리스트</Title>
-      <InputFormWrapper>
-        <Input />
-        <AddTodoBtn onClick={handleAddTodo}>➕</AddTodoBtn>
-      </InputFormWrapper>
-      <List title={'TODO'} list={todoItems} />
-      <List title={'DONE'} list={todoItems} />
-    </TodoContainer>
-  );
-};
 
 export default Container;
