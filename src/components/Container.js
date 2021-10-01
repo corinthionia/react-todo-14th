@@ -1,13 +1,13 @@
 import styled from 'styled-components';
 
-const Container = ({ todo, handleChange, addNewTodo, List }) => {
+const Container = ({ todo, handleInputChange, addNewTodo, List }) => {
   return (
     <TodoContainer>
       <Title>💌 투두리스트</Title>
       <InputFormWrapper>
         <Input
           value={todo}
-          onChange={handleChange}
+          onChange={handleInputChange}
           placeholder="할 일을 입력하세요."
         />
         <AddTodoBtn onClick={addNewTodo}>➕</AddTodoBtn>

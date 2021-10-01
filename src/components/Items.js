@@ -29,7 +29,7 @@ const Items = () => {
   };
 
   // 인풋 필드에 입력한 값으로 inputText를 변경
-  const handleChange = (e) => {
+  const handleInputChange = (e) => {
     setInputText(e.target.value);
   };
 
@@ -65,7 +65,7 @@ const Items = () => {
   return (
     <Container
       todo={inputText}
-      handleChange={handleChange}
+      handleInputChange={handleInputChange}
       addNewTodo={addNewTodo}
       List={
         <List items={items} deleteTodo={deleteTodo} toggleTodo={toggleTodo} />
