@@ -1,14 +1,19 @@
 import styled from 'styled-components';
 
 const List = ({ title, items }) => {
+  const reversedItems = [...items].reverse();
+
   return (
     <ListSection>
       <ListTitle>{title}</ListTitle>
-      <ListItemWrapper>
-        {items.map((item, i) => (
-          <ListItem key={i}>{item.text}</ListItem>
+      <ListWrapper>
+        {reversedItems.map((item, i) => (
+          <ListItemWrapper key={i}>
+            <ListItem>{item.text}</ListItem>
+            <DeleteBtn>❌</DeleteBtn>
+          </ListItemWrapper>
         ))}
-      </ListItemWrapper>
+      </ListWrapper>
     </ListSection>
   );
 };
@@ -22,8 +27,8 @@ const ListSection = styled.section`
   }
 `;
 
-const ListTitle = styled.div`
-  font-size: 1.25rem;
+const ListTitle = styled.h3`
+  color: yellowgreen;
 
   display: flex;
   align-items: center;
@@ -32,9 +37,11 @@ const ListTitle = styled.div`
   padding: 0.75rem;
 `;
 
-const ListItemWrapper = styled.div`
+const ListWrapper = styled.div`
   height: 9rem;
 
+  display: flex;
+  flex-direction: column;
   overflow: auto;
 
   &::-webkit-scrollbar {
@@ -50,20 +57,26 @@ const ListItemWrapper = styled.div`
   }
 `;
 
-const ListItem = styled.div`
+const ListItemWrapper = styled.div`
+  height: 2rem;
+  margin: 1rem 1rem 1rem 0;
+`;
+
+const ListItem = styled.span`
   margin: 0;
   padding: 0.75rem;
 `;
 
 const DeleteBtn = styled.button`
+  margin: 0;
+  padding: 0;
+
+  border: none;
+  background: none;
+
   &:hover {
     cursor: pointer;
   }
-  width: 5rem;
-  height: 5rem;
-  border: none;
-  background: none;
-  margin-left: 1rem;
 `;
 
 export default List;
