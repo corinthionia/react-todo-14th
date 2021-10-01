@@ -6,8 +6,10 @@ const List = ({ title, items, deleteTodo, toggleTodo }) => {
       <ListTitle>{title}</ListTitle>
       <ListWrapper>
         {items.map((item, i) => (
-          <ListItemWrapper key={i}>
-            <ListItem onClick={() => toggleTodo(item.id)}>{item.text}</ListItem>
+          <ListItemWrapper key={i} isDone={item.isDone}>
+            <ListItemText onClick={() => toggleTodo(item.id)}>
+              {item.text}
+            </ListItemText>
             <DeleteBtn onClick={() => deleteTodo(item.id)}>❌</DeleteBtn>
           </ListItemWrapper>
         ))}
@@ -56,16 +58,18 @@ const ListWrapper = styled.div`
 
 const ListItemWrapper = styled.div`
   height: 2rem;
-  margin: 1rem 1rem 1rem 0;
-`;
 
-const ListItem = styled.span`
-  margin: 0;
-  padding: 0.75rem;
+  margin: 1rem 0 1rem 0;
+
+  ${(item) => (item.isDone ? `opacity: 0.5;` : `opacity: 1.0;`)}
 
   &:hover {
     cursor: pointer;
   }
+`;
+
+const ListItemText = styled.span`
+  margin: 0 1rem 0 1.25rem;
 `;
 
 const DeleteBtn = styled.button`

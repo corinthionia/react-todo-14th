@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Container from './Container';
 
 const Item = () => {
@@ -14,6 +14,11 @@ const Item = () => {
     text: inputText,
     isDone: false,
   };
+
+  useEffect(() => {
+    const savedItems = localStorage.getItem('todoItems');
+    savedItems && setItems(JSON.parse(savedItems));
+  }, []);
 
   const handleChange = (e) => {
     setInputText(e.target.value);
