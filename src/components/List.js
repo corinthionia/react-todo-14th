@@ -1,16 +1,14 @@
 import styled from 'styled-components';
 
-const List = ({ title, items }) => {
-  const reversedItems = [...items].reverse();
-
+const List = ({ title, items, deleteTodo }) => {
   return (
     <ListSection>
       <ListTitle>{title}</ListTitle>
       <ListWrapper>
-        {reversedItems.map((item, i) => (
+        {items.map((item, i) => (
           <ListItemWrapper key={i}>
             <ListItem>{item.text}</ListItem>
-            <DeleteBtn>❌</DeleteBtn>
+            <DeleteBtn onClick={() => deleteTodo(item.id)}>❌</DeleteBtn>
           </ListItemWrapper>
         ))}
       </ListWrapper>

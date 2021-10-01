@@ -26,6 +26,12 @@ const Item = () => {
 
     setTodo('');
     setId(id + 1);
+
+    console.log(items);
+  };
+
+  const deleteTodo = (id) => {
+    setItems(items.filter((todo) => todo.id !== id));
   };
 
   return (
@@ -33,6 +39,7 @@ const Item = () => {
       todo={todo}
       handleChange={handleChange}
       addNewTodo={addNewTodo}
+      deleteTodo={deleteTodo}
       items={items}
     />
   );

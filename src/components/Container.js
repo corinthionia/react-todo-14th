@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import List from './List';
 
-const Container = ({ todo, handleChange, addNewTodo, items }) => {
+const Container = ({ todo, handleChange, addNewTodo, items, deleteTodo }) => {
   return (
     <TodoContainer>
       <Title>💌 투두리스트</Title>
@@ -13,8 +13,8 @@ const Container = ({ todo, handleChange, addNewTodo, items }) => {
         />
         <AddTodoBtn onClick={addNewTodo}>➕</AddTodoBtn>
       </InputFormWrapper>
-      <List title={'TODO'} items={items} />
-      <List title={'DONE'} items={items} />
+      <List title={'TODO'} items={items} deleteTodo={deleteTodo} />
+      <List title={'DONE'} items={items} deleteTodo={deleteTodo} />
     </TodoContainer>
   );
 };
