@@ -2,6 +2,9 @@ import styled from 'styled-components';
 import List from './List';
 
 const Container = ({ todo, handleChange, addNewTodo, items, deleteTodo }) => {
+  const todoList = items.filter((todo) => todo.isDone === false);
+  const doneList = items.filter((todo) => todo.isDone === true);
+
   return (
     <TodoContainer>
       <Title>💌 투두리스트</Title>
@@ -13,8 +16,16 @@ const Container = ({ todo, handleChange, addNewTodo, items, deleteTodo }) => {
         />
         <AddTodoBtn onClick={addNewTodo}>➕</AddTodoBtn>
       </InputFormWrapper>
-      <List title={'TODO'} items={items} deleteTodo={deleteTodo} />
-      <List title={'DONE'} items={items} deleteTodo={deleteTodo} />
+      <List
+        title={`TODO (${todoList.length})`}
+        items={todoList}
+        deleteTodo={deleteTodo}
+      />
+      <List
+        title={`DONE (${doneList.length})`}
+        items={doneList}
+        deleteTodo={deleteTodo}
+      />
     </TodoContainer>
   );
 };

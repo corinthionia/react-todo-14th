@@ -1,6 +1,9 @@
 import styled from 'styled-components';
 
 const List = ({ title, items, deleteTodo }) => {
+  const todoList = items.filter((todo) => todo.isDone === false);
+  const doneList = items.filter((todo) => todo.isDone === true);
+
   return (
     <ListSection>
       <ListTitle>{title}</ListTitle>
@@ -26,8 +29,6 @@ const ListSection = styled.section`
 `;
 
 const ListTitle = styled.h3`
-  color: yellowgreen;
-
   display: flex;
   align-items: center;
 

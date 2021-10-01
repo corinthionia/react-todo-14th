@@ -26,8 +26,6 @@ const Item = () => {
 
     setTodo('');
     setId(id + 1);
-
-    console.log(items);
   };
 
   const deleteTodo = (id) => {
