@@ -38,7 +38,7 @@
 
 - 1주차 미션의 결과물을 그대로 React로 구현합니다
 - Functional Components를 사용합니다
-- React Hooks만을 사용해 상태를 관리합니다 
+- React Hooks만을 사용해 상태를 관리합니다
 - (이번주는 Redux, MobX, Recoil, SWR등의 외부 상태관리 라이브러리를 사용하지 않아도 미션 수행에 지장이 없습니다.)
 
 ## 선택 요건
@@ -50,7 +50,6 @@
 ---
 
 `npm start` : 로컬에서 react application을 자동으로 리로드하여 실행시켜줍니다.
-
 
 # 링크 및 참고자료
 
