@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react';
 import Container from './Container';
-import List from './List';
 
 // 할 일들을 관리(추가/삭제/토글)하는 컴포넌트
 const Items = () => {
@@ -22,6 +21,7 @@ const Items = () => {
   const [inputText, setInputText] = useState('');
   const [id, setId] = useState(0);
 
+  // 입력받은 할 일을 객체 형태로 만듦
   const itemObj = {
     id: id,
     text: inputText,
@@ -65,11 +65,11 @@ const Items = () => {
   return (
     <Container
       todo={inputText}
+      items={items}
       handleInputChange={handleInputChange}
       addNewTodo={addNewTodo}
-      List={
-        <List items={items} deleteTodo={deleteTodo} toggleTodo={toggleTodo} />
-      }
+      deleteTodo={deleteTodo}
+      toggleTodo={toggleTodo}
     />
   );
 };

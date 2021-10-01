@@ -1,6 +1,14 @@
 import styled from 'styled-components';
+import List from './List';
 
-const Container = ({ todo, handleInputChange, addNewTodo, List }) => {
+const Container = ({
+  todo,
+  items,
+  handleInputChange,
+  addNewTodo,
+  deleteTodo,
+  toggleTodo,
+}) => {
   return (
     <TodoContainer>
       <Title>💌 투두리스트</Title>
@@ -12,7 +20,7 @@ const Container = ({ todo, handleInputChange, addNewTodo, List }) => {
         />
         <AddTodoBtn onClick={addNewTodo}>➕</AddTodoBtn>
       </InputFormWrapper>
-      {List}
+      <List items={items} deleteTodo={deleteTodo} toggleTodo={toggleTodo} />
     </TodoContainer>
   );
 };
