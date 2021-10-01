@@ -24,13 +24,13 @@ const Container = ({
         <AddTodoBtn onClick={addNewTodo}>➕</AddTodoBtn>
       </InputFormWrapper>
       <List
-        title={`TODO (${todoList.length})`}
+        title={`📃 TODO (${todoList.length})`}
         items={todoList}
         toggleTodo={toggleTodo}
         deleteTodo={deleteTodo}
       />
       <List
-        title={`DONE (${doneList.length})`}
+        title={`💐 DONE (${doneList.length})`}
         items={doneList}
         toggleTodo={toggleTodo}
         deleteTodo={deleteTodo}
