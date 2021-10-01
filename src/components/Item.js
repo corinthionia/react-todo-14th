@@ -29,7 +29,15 @@ const Item = () => {
   };
 
   const deleteTodo = (id) => {
-    setItems(items.filter((todo) => todo.id !== id));
+    setItems(items.filter((todoObj) => todoObj.id !== id));
+  };
+
+  const toggleTodo = (id) => {
+    setItems(
+      items.map((todo) =>
+        todo.id === id ? { ...todo, isDone: !todo.isDone } : todo
+      )
+    );
   };
 
   return (
@@ -39,6 +47,7 @@ const Item = () => {
       addNewTodo={addNewTodo}
       deleteTodo={deleteTodo}
       items={items}
+      toggleTodo={toggleTodo}
     />
   );
 };

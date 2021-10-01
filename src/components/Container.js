@@ -1,9 +1,16 @@
 import styled from 'styled-components';
 import List from './List';
 
-const Container = ({ todo, handleChange, addNewTodo, items, deleteTodo }) => {
-  const todoList = items.filter((todo) => todo.isDone === false);
-  const doneList = items.filter((todo) => todo.isDone === true);
+const Container = ({
+  todo,
+  handleChange,
+  addNewTodo,
+  items,
+  deleteTodo,
+  toggleTodo,
+}) => {
+  const todoList = items.filter((todoObj) => todoObj.isDone === false);
+  const doneList = items.filter((todoObj) => todoObj.isDone === true);
 
   return (
     <TodoContainer>
@@ -19,11 +26,13 @@ const Container = ({ todo, handleChange, addNewTodo, items, deleteTodo }) => {
       <List
         title={`TODO (${todoList.length})`}
         items={todoList}
+        toggleTodo={toggleTodo}
         deleteTodo={deleteTodo}
       />
       <List
         title={`DONE (${doneList.length})`}
         items={doneList}
+        toggleTodo={toggleTodo}
         deleteTodo={deleteTodo}
       />
     </TodoContainer>

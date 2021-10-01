@@ -1,16 +1,13 @@
 import styled from 'styled-components';
 
-const List = ({ title, items, deleteTodo }) => {
-  const todoList = items.filter((todo) => todo.isDone === false);
-  const doneList = items.filter((todo) => todo.isDone === true);
-
+const List = ({ title, items, deleteTodo, toggleTodo }) => {
   return (
     <ListSection>
       <ListTitle>{title}</ListTitle>
       <ListWrapper>
         {items.map((item, i) => (
           <ListItemWrapper key={i}>
-            <ListItem>{item.text}</ListItem>
+            <ListItem onClick={() => toggleTodo(item.id)}>{item.text}</ListItem>
             <DeleteBtn onClick={() => deleteTodo(item.id)}>❌</DeleteBtn>
           </ListItemWrapper>
         ))}
@@ -23,6 +20,7 @@ const ListSection = styled.section`
   height: 40%;
 
   border-bottom: 1px solid lightgrey;
+
   & + & {
     border: none;
   }
@@ -64,6 +62,10 @@ const ListItemWrapper = styled.div`
 const ListItem = styled.span`
   margin: 0;
   padding: 0.75rem;
+
+  &:hover {
+    cursor: pointer;
+  }
 `;
 
 const DeleteBtn = styled.button`
