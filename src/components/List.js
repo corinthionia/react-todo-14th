@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-const List = ({ title, items, deleteTodo, toggleTodo }) => {
+const ItemList = ({ items, title, deleteTodo, toggleTodo }) => {
   return (
     <ListSection>
       <ListTitle>{title}</ListTitle>
@@ -15,6 +15,28 @@ const List = ({ title, items, deleteTodo, toggleTodo }) => {
         ))}
       </ListWrapper>
     </ListSection>
+  );
+};
+
+const List = ({ items, deleteTodo, toggleTodo }) => {
+  const todoList = items.filter((todoObj) => todoObj.isDone === false);
+  const doneList = items.filter((todoObj) => todoObj.isDone === true);
+
+  return (
+    <>
+      <ItemList
+        items={todoList}
+        title={`🌴 TODO (${todoList.length})`}
+        deleteTodo={deleteTodo}
+        toggleTodo={toggleTodo}
+      />
+      <ItemList
+        items={doneList}
+        title={`💐 DONE (${doneList.length})`}
+        deleteTodo={deleteTodo}
+        toggleTodo={toggleTodo}
+      />
+    </>
   );
 };
 

@@ -1,18 +1,6 @@
 import styled from 'styled-components';
-import List from './List';
 
-const Container = ({
-  todo,
-  handleChange,
-  addNewTodo,
-  items,
-  setItems,
-  deleteTodo,
-  toggleTodo,
-}) => {
-  const todoList = items.filter((todoObj) => todoObj.isDone === false);
-  const doneList = items.filter((todoObj) => todoObj.isDone === true);
-
+const Container = ({ todo, handleChange, addNewTodo, List }) => {
   return (
     <TodoContainer>
       <Title>💌 투두리스트</Title>
@@ -24,18 +12,7 @@ const Container = ({
         />
         <AddTodoBtn onClick={addNewTodo}>➕</AddTodoBtn>
       </InputFormWrapper>
-      <List
-        title={`📃 TODO (${todoList.length})`}
-        items={todoList}
-        toggleTodo={toggleTodo}
-        deleteTodo={deleteTodo}
-      />
-      <List
-        title={`💐 DONE (${doneList.length})`}
-        items={doneList}
-        toggleTodo={toggleTodo}
-        deleteTodo={deleteTodo}
-      />
+      {List}
     </TodoContainer>
   );
 };
