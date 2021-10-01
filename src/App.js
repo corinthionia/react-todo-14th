@@ -2,6 +2,10 @@ import { createGlobalStyle } from 'styled-components';
 import TodoItems from './components/TodoItems';
 
 const GlobalStyle = createGlobalStyle`
+    *:focus {
+        outline: none;
+    }
+
     body {
         margin: 0;
         height: 100vh;
