@@ -6,25 +6,29 @@ const Item = () => {
   const [items, setItems] = useState([]);
 
   // todo: 입력한 할 일
-  const [todo, setTodo] = useState('');
+  const [inputText, setInputText] = useState('');
   const [id, setId] = useState(0);
 
+  const itemObj = {
+    id: id,
+    text: inputText,
+    isDone: false,
+  };
+
   const handleChange = (e) => {
-    setTodo(e.target.value);
+    setInputText(e.target.value);
   };
 
   const addNewTodo = (e) => {
     e.preventDefault();
 
-    setItems(
-      items.concat({
-        id: id,
-        text: todo,
-        isDone: false,
-      })
-    );
+    const index = items.findIndex((todoObj) => todoObj.text === inputText);
 
-    setTodo('');
+    if (inputText && index === -1) {
+      setItems(items.concat(itemObj));
+    }
+
+    setInputText('');
     setId(id + 1);
   };
 
@@ -42,7 +46,7 @@ const Item = () => {
 
   return (
     <Container
-      todo={todo}
+      todo={inputText}
       handleChange={handleChange}
       addNewTodo={addNewTodo}
       deleteTodo={deleteTodo}
