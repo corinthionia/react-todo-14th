@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useCallback } from 'react';
-import TodoForm from './TodoForm';
+import TodoContainer from './TodoContainer';
 
 // 할 일들을 관리(추가/삭제/토글)하는 컴포넌트
 const TodoItems = () => {
@@ -27,11 +27,12 @@ const TodoItems = () => {
       // 중복, 공백 입력이 아니면 객체 형태로 만들어 items에 저장
       if (inputText && indexOfDuplicates === -1) {
         const todoItem = {
+          id: Date.now(),
           text: inputText,
           isDone: false,
         };
 
-        setItems(items.concat(todoItem));
+        setItems([...items, todoItem]);
       }
 
       setInputText('');
@@ -41,18 +42,18 @@ const TodoItems = () => {
 
   // items 배열에서 할 일 삭제
   const deleteTodo = useCallback(
-    (text) => {
-      setItems(items.filter((todo) => todo.text !== text));
+    (id) => {
+      setItems(items.filter((todo) => todo.id !== id));
     },
     [items]
   );
 
   // 할 일의 isDone을 반전
   const toggleTodo = useCallback(
-    (text) => {
+    (id) => {
       setItems(
         items.map((todo) =>
-          todo.text === text ? { ...todo, isDone: !todo.isDone } : todo
+          todo.id === id ? { ...todo, isDone: !todo.isDone } : todo
         )
       );
     },
@@ -71,7 +72,7 @@ const TodoItems = () => {
   }, [items]);
 
   return (
-    <TodoForm
+    <TodoContainer
       todo={inputText}
       items={items}
       handleInputChange={handleInputChange}

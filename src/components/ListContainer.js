@@ -1,16 +1,16 @@
 import styled from 'styled-components';
 
-const ListForm = ({ items, title, deleteTodo, toggleTodo }) => {
+const ListContainer = ({ items, title, deleteTodo, toggleTodo }) => {
   return (
     <ListSection>
       <ListTitle>{title}</ListTitle>
       <ListWrapper>
-        {items.map((item, i) => (
-          <ListItemWrapper key={i} isDone={item.isDone}>
-            <ListItemText onClick={() => toggleTodo(item.text)}>
+        {items.map((item) => (
+          <ListItemWrapper key={item.id} isDone={item.isDone}>
+            <ListItemText onClick={() => toggleTodo(item.id)}>
               {item.text}
             </ListItemText>
-            <DeleteBtn onClick={() => deleteTodo(item.text)}>❌</DeleteBtn>
+            <DeleteBtn onClick={() => deleteTodo(item.id)}>❌</DeleteBtn>
           </ListItemWrapper>
         ))}
       </ListWrapper>
@@ -59,7 +59,7 @@ const ListWrapper = styled.div`
 const ListItemWrapper = styled.div`
   height: 2rem;
 
-  margin: 1rem 0 1rem 0;
+  margin: 1rem 0;
 
   ${(item) => (item.isDone ? `opacity: 0.5;` : `opacity: 1.0;`)}
 
@@ -84,4 +84,4 @@ const DeleteBtn = styled.button`
   }
 `;
 
-export default ListForm;
+export default ListContainer;

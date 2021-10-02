@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import ItemList from './ItemList';
 
-const TodoForm = ({
+const TodoContainer = ({
   todo,
   items,
   handleInputChange,
@@ -10,7 +10,7 @@ const TodoForm = ({
   toggleTodo,
 }) => {
   return (
-    <TodoContainer>
+    <Container>
       <Title>💌 투두리스트</Title>
       <InputFormWrapper>
         <Input
@@ -21,11 +21,11 @@ const TodoForm = ({
         <AddTodoBtn onClick={addNewTodo}>➕</AddTodoBtn>
       </InputFormWrapper>
       <ItemList items={items} deleteTodo={deleteTodo} toggleTodo={toggleTodo} />
-    </TodoContainer>
+    </Container>
   );
 };
 
-const TodoContainer = styled.div`
+const Container = styled.div`
   width: 360px;
   height: 600px;
 
@@ -90,4 +90,4 @@ const AddTodoBtn = styled.button`
   }
 `;
 
-export default TodoForm;
+export default TodoContainer;
