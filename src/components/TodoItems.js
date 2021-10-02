@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import Container from './Container';
+import TodoForm from './TodoForm';
 
 // 할 일들을 관리(추가/삭제/토글)하는 컴포넌트
 const TodoItems = () => {
@@ -63,7 +63,7 @@ const TodoItems = () => {
   };
 
   return (
-    <Container
+    <TodoForm
       todo={inputText}
       items={items}
       handleInputChange={handleInputChange}

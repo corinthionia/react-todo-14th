@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import ItemList from './ItemList';
 
-const Container = ({
+const TodoForm = ({
   todo,
   items,
   handleInputChange,
@@ -90,4 +90,4 @@ const AddTodoBtn = styled.button`
   }
 `;
 
-export default Container;
+export default TodoForm;

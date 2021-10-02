@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-const MakeList = ({ items, title, deleteTodo, toggleTodo }) => {
+const ListForm = ({ items, title, deleteTodo, toggleTodo }) => {
   return (
     <ListSection>
       <ListTitle>{title}</ListTitle>
@@ -84,4 +84,4 @@ const DeleteBtn = styled.button`
   }
 `;
 
-export default MakeList;
+export default ListForm;
