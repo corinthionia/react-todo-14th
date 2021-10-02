@@ -23,7 +23,7 @@ const TodoItems = () => {
 
   // 입력받은 할 일을 객체 형태로 만듦
   const itemObj = {
-    id: id,
+    id: Date.now(),
     text: inputText,
     isDone: false,
   };
@@ -61,6 +61,8 @@ const TodoItems = () => {
       )
     );
   };
+
+  console.log(items);
 
   return (
     <TodoForm
