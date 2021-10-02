@@ -1,3 +1,4 @@
+import React from 'react';
 import ListForm from './ListForm';
 
 const ItemList = ({ items, deleteTodo, toggleTodo }) => {
@@ -24,4 +25,4 @@ const ItemList = ({ items, deleteTodo, toggleTodo }) => {
   );
 };
 
-export default ItemList;
+export default React.memo(ItemList);
