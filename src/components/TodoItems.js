@@ -6,6 +6,9 @@ const TodoItems = () => {
   // items: 전체 할 일들을 저장
   const [items, setItems] = useState([]);
 
+  // inputText: 입력한 할 일
+  const [inputText, setInputText] = useState('');
+
   // local storage에 저장된 할 일 불러오기
   useEffect(() => {
     const savedItems = localStorage.getItem('todoItems');
@@ -17,12 +20,8 @@ const TodoItems = () => {
     localStorage.setItem('todoItems', JSON.stringify(items));
   }, [items]);
 
-  // inputText: 입력한 할 일
-  const [inputText, setInputText] = useState('');
-
   // 입력받은 할 일을 객체 형태로 만듦
-  const itemObj = {
-    id: Date.now(),
+  const todoItem = {
     text: inputText,
     isDone: false,
   };
@@ -38,26 +37,26 @@ const TodoItems = () => {
 
     // 중복 검사
     const indexOfDuplicates = items.findIndex(
-      (todoObj) => todoObj.text === inputText
+      (todo) => todo.text === inputText
     );
 
     if (inputText && indexOfDuplicates === -1) {
-      setItems(items.concat(itemObj));
+      setItems(items.concat(todoItem));
     }
 
     setInputText('');
   };
 
   // items 배열에서 할 일 삭제
-  const deleteTodo = (id) => {
-    setItems(items.filter((todoObj) => todoObj.id !== id));
+  const deleteTodo = (text) => {
+    setItems(items.filter((todo) => todo.text !== text));
   };
 
   // 할 일의 isDone을 반전
-  const toggleTodo = (id) => {
+  const toggleTodo = (text) => {
     setItems(
       items.map((todo) =>
-        todo.id === id ? { ...todo, isDone: !todo.isDone } : todo
+        todo.text === text ? { ...todo, isDone: !todo.isDone } : todo
       )
     );
   };

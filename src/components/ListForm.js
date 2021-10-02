@@ -7,10 +7,10 @@ const ListForm = ({ items, title, deleteTodo, toggleTodo }) => {
       <ListWrapper>
         {items.map((item, i) => (
           <ListItemWrapper key={i} isDone={item.isDone}>
-            <ListItemText onClick={() => toggleTodo(item.id)}>
+            <ListItemText onClick={() => toggleTodo(item.text)}>
               {item.text}
             </ListItemText>
-            <DeleteBtn onClick={() => deleteTodo(item.id)}>❌</DeleteBtn>
+            <DeleteBtn onClick={() => deleteTodo(item.text)}>❌</DeleteBtn>
           </ListItemWrapper>
         ))}
       </ListWrapper>
