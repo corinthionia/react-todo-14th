@@ -19,7 +19,6 @@ const TodoItems = () => {
 
   // inputText: 입력한 할 일
   const [inputText, setInputText] = useState('');
-  const [id, setId] = useState(0);
 
   // 입력받은 할 일을 객체 형태로 만듦
   const itemObj = {
@@ -38,14 +37,15 @@ const TodoItems = () => {
     e.preventDefault();
 
     // 중복 검사
-    const index = items.findIndex((todoObj) => todoObj.text === inputText);
+    const indexOfDuplicates = items.findIndex(
+      (todoObj) => todoObj.text === inputText
+    );
 
-    if (inputText && index === -1) {
+    if (inputText && indexOfDuplicates === -1) {
       setItems(items.concat(itemObj));
     }
 
     setInputText('');
-    setId(id + 1);
   };
 
   // items 배열에서 할 일 삭제
@@ -61,8 +61,6 @@ const TodoItems = () => {
       )
     );
   };
-
-  console.log(items);
 
   return (
     <TodoForm
