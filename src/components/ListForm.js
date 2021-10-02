@@ -11,8 +11,6 @@ const ListForm = ({ items, title, deleteTodo, toggleTodo }) => {
               {item.text}
             </ListItemText>
             <DeleteBtn onClick={() => deleteTodo(item.text)}>❌</DeleteBtn>
-
-            {console.log(`${i} 번째 리스트 렌더링`)}
           </ListItemWrapper>
         ))}
       </ListWrapper>
