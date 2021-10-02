@@ -43,24 +43,18 @@ const TodoItems = () => {
   );
 
   // items 배열에서 할 일 삭제
-  const deleteTodo = useCallback(
-    (id) => {
-      setItems(items.filter((todo) => todo.id !== id));
-    },
-    [items]
-  );
+  const deleteTodo = useCallback((id) => {
+    setItems((items) => items.filter((todo) => todo.id !== id));
+  }, []);
 
   // 할 일의 isDone을 반전
-  const toggleTodo = useCallback(
-    (id) => {
-      setItems(
-        items.map((todo) =>
-          todo.id === id ? { ...todo, isDone: !todo.isDone } : todo
-        )
-      );
-    },
-    [items]
-  );
+  const toggleTodo = useCallback((id) => {
+    setItems((items) =>
+      items.map((todo) =>
+        todo.id === id ? { ...todo, isDone: !todo.isDone } : todo
+      )
+    );
+  }, []);
 
   // local storage에 items 저장하기
   useEffect(() => {

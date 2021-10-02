@@ -20,7 +20,7 @@ const ItemList = ({ items, deleteTodo, toggleTodo }) => {
 
   return (
     <>
-      {list.map((list, i) => (
+      {list.map((list) => (
         <ListContainer
           key={list.id}
           items={list.item}
