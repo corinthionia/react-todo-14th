@@ -1,10 +1,7 @@
 import React from 'react';
-import ListContainer from './ListContainer';
+import ListWrapper from './ListWrapper';
 
-const ItemList = ({ items, deleteTodo, toggleTodo }) => {
-  const todoList = items.filter((todoObj) => todoObj.isDone === false);
-  const doneList = items.filter((todoObj) => todoObj.isDone === true);
-
+const ItemList = ({ todoList, doneList, deleteTodo, toggleTodo }) => {
   const list = [
     {
       id: 'todoListKey',
@@ -21,7 +18,7 @@ const ItemList = ({ items, deleteTodo, toggleTodo }) => {
   return (
     <>
       {list.map((list) => (
-        <ListContainer
+        <ListWrapper
           key={list.id}
           items={list.item}
           title={list.title}

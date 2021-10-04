@@ -1,5 +1,5 @@
 import { createGlobalStyle } from 'styled-components';
-import TodoItems from './components/TodoItems';
+import TodoContainer from './components/TodoContainer';
 
 const GlobalStyle = createGlobalStyle`
     *:focus {
@@ -22,7 +22,7 @@ function App() {
   return (
     <>
       <GlobalStyle />
-      <TodoItems />
+      <TodoContainer />
     </>
   );
 }

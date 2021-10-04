@@ -1,10 +1,10 @@
 import styled from 'styled-components';
 
-const ListContainer = ({ items, title, deleteTodo, toggleTodo }) => {
+const ListWrapper = ({ items, title, deleteTodo, toggleTodo }) => {
   return (
-    <ListSection>
-      <ListTitle>{title}</ListTitle>
-      <ListWrapper>
+    <Section>
+      <Title>{title}</Title>
+      <Wrapper>
         {items.map((item) => (
           <ListItemWrapper key={item.id} isDone={item.isDone}>
             <ListItemText onClick={() => toggleTodo(item.id)}>
@@ -13,12 +13,12 @@ const ListContainer = ({ items, title, deleteTodo, toggleTodo }) => {
             <DeleteBtn onClick={() => deleteTodo(item.id)}>❌</DeleteBtn>
           </ListItemWrapper>
         ))}
-      </ListWrapper>
-    </ListSection>
+      </Wrapper>
+    </Section>
   );
 };
 
-const ListSection = styled.section`
+const Section = styled.section`
   height: 40%;
 
   border-bottom: 1px solid lightgrey;
@@ -28,7 +28,7 @@ const ListSection = styled.section`
   }
 `;
 
-const ListTitle = styled.h3`
+const Title = styled.h3`
   display: flex;
   align-items: center;
 
@@ -36,7 +36,7 @@ const ListTitle = styled.h3`
   padding: 0.75rem;
 `;
 
-const ListWrapper = styled.div`
+const Wrapper = styled.div`
   height: 9rem;
 
   display: flex;
@@ -84,4 +84,4 @@ const DeleteBtn = styled.button`
   }
 `;
 
-export default ListContainer;
+export default ListWrapper;
