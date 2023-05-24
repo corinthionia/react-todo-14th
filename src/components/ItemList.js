@@ -6,12 +6,12 @@ const ItemList = ({ todoList, doneList, deleteTodo, toggleTodo }) => {
     {
       id: 'todoListKey',
       item: todoList,
-      title: `🌴 TODO (${todoList.length})`,
+      title: `🌴 TODO (${todoList?.length})`,
     },
     {
       id: 'doneListKey',
       item: doneList,
-      title: `💐 DONE (${doneList.length})`,
+      title: `💐 DONE (${doneList?.length})`,
     },
   ];
 

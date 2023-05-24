@@ -1,6 +1,15 @@
 import { createGlobalStyle } from 'styled-components';
 import TodoContainer from './components/TodoContainer';
 
+function App() {
+  return (
+    <>
+      <GlobalStyle />
+      <TodoContainer />
+    </>
+  );
+}
+
 const GlobalStyle = createGlobalStyle`
     *:focus {
         outline: none;
@@ -17,14 +26,5 @@ const GlobalStyle = createGlobalStyle`
         background: #d4e6b0;
     }
 `;
-
-function App() {
-  return (
-    <>
-      <GlobalStyle />
-      <TodoContainer />
-    </>
-  );
-}
 
 export default App;

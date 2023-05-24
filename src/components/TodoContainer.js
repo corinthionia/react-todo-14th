@@ -4,8 +4,8 @@ import TodoWrapper from './TodoWrapper';
 // 할 일들을 관리(추가/삭제/토글)하는 컴포넌트
 const TodoContainer = () => {
   // items: 전체 할 일들을 저장
-  const [items, setItems] = useState(() =>
-    JSON.parse(localStorage.getItem('todoItems'))
+  const [items, setItems] = useState(
+    JSON.parse(localStorage.getItem('todoItems')) || []
   );
 
   // inputText: 입력한 할 일
